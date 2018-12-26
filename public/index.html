@@ -1,0 +1,278 @@
+<!doctype html>
+<html class="fixed">
+	<head>
+
+		<!-- Basic -->
+		<meta charset="UTF-8">
+
+		<title>StarOrganic-Admin</title>
+		<meta name="keywords" content="HTML5 Admin Template" />
+		<meta name="description" content="JSOFT Admin - Responsive HTML5 Template">
+		<meta name="author" content="JSOFT.net">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="octopus/assets/vendor/bootstrap/css/bootstrap.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="octopus/assets/stylesheets/theme.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="octopus/assets/stylesheets/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="octopus/assets/stylesheets/theme-custom.css">
+
+		<!-- Head Libs -->
+		<script src="octopus/assets/vendor/modernizr/modernizr.js"></script>
+
+		<!-- TU THEM -->
+		<link href="backend/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    	<!-- Custom CSS -->
+	    <link href="backend/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+	    <script src="backend/vendor/jquery/jquery.min.js"></script>
+
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/dirPagination.js"></script>
+
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
+		<script type="text/javascript" src="js/angular-animate.js"></script>
+		<script type="text/javascript" src="js/angular-touch.min.js"></script>
+	  	
+	  	<script type="text/javascript" src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+		
+		<script type="text/javascript" src="js/custom.js"></script>
+
+
+	  
+
+	</head>
+	<body ng-app="myApp" ng-controller="dataController">
+		<section class="body">
+
+			<!-- start: header -->
+			<header class="header">
+				<div class="logo-container">
+					<a href="../" class="logo">
+						<img src="uploads/logo.png" height="50" alt="JSOFT Admin" />
+					</a>
+					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+					</div>
+				</div>
+				<!-- start: search & user box -->
+				<div class="header-right">
+					<span class="separator"></span>
+					<ul class="notifications">
+						<li>
+							<a href="" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+								<i class="fa fa-tasks"></i>
+							</a>
+						</li>
+						<li>
+							<a href="" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+								<i class="fa fa-envelope"></i>
+							</a>
+						</li>
+						<li>
+							<a href="" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+								<i class="fa fa-bell"></i>
+							</a>
+						</li>
+					</ul>
+					<span class="separator"></span>
+					<div id="userbox" class="userbox" ng-repeat="user in users">
+						<a href="" data-toggle="dropdown">
+							<figure class="profile-picture">
+								<img src="octopus/assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="octopus/assets/images/!logged-user.jpg" />
+							</figure>
+							<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
+								<span class="name">{{user.username}}</span>
+								<span class="role">administrator</span>
+							</div>
+			
+							<i class="fa custom-caret"></i>
+						</a>
+			
+						<div class="dropdown-menu">
+							<ul class="list-unstyled">
+								<li class="divider"></li>
+								<li>
+									<a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> My Profile</a>
+								</li>
+								<li>
+									<a role="menuitem" tabindex="-1" href="" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
+								</li>
+								<li>
+									<a role="menuitem" tabindex="-1" href="/admin.html"><i class="fa fa-power-off"></i> Logout</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- end: search & user box -->
+			</header>
+			<!-- end: header -->
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+				
+					<div class="sidebar-header">
+						<div class="sidebar-title">
+							Admin
+						</div>
+
+						<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+							<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+						</div>
+
+					</div>
+				
+					<div class="nano">
+						<div class="nano-content">
+							<nav id="menu" class="nav-main" role="navigation">
+								<ul class="nav nav-main">
+									<li class="nav-active">
+										<a href="/">
+											<i class="fa fa-home" aria-hidden="true"></i>
+											<span>Dashboard</span>
+										</a>
+									</li>
+									<li class="nav-parent">
+										<a>
+											<i class="fa fa-tree" aria-hidden="true"></i>
+											<span>Categories</span>
+										</a>
+										<ul class="nav nav-children">
+											<li>
+												<a href="#!loai"><i class="fa fa-tree"></i>Categories</a>
+											</li>
+											<li>
+												<a href="#!themloai"><i class="fa fa-plus"></i>Add new category</a>
+											</li>
+											
+										</ul>
+
+									</li>
+									<li class="nav-parent">
+										<a>
+											<i class="fa fa-leaf" aria-hidden="true"></i>
+											<span>Products</span>
+										</a>
+										<ul class="nav nav-children">
+											<li>
+												<a href="#!sp"><i class="fa fa-leaf"></i>Products</a>
+											</li>
+											<li>
+												<a href="#!themsp"><i class="fa fa-plus"></i>Add new product</a>
+											</li>
+											
+										</ul>
+									</li>
+									<li>
+										<a href="">
+											<i class="fa fa-eye" aria-hidden="true"></i>
+											<span>Front-End</span>
+										</a>
+									</li>
+									<li class="nav-active">
+										<i href="">
+											<i ></i>
+											<span></span>
+										</i>
+									</li>
+									<li class="nav-active">
+										<i href="">
+											<i ></i>
+											<span></span>
+										</i>
+									</li>
+									<li class="nav-active">
+										<i href="">
+											<i></i>
+											<span></span>
+										</i>
+									</li>
+								</ul>
+							</nav>
+							<hr class="separator" />
+				
+							<div class="sidebar-widget widget-stats">
+								<div class="widget-header">
+									<h6></h6>
+									<div class="widget-toggle">+</div>
+								</div>
+								<div class="widget-content">
+									<ul>
+										<li>
+											<span class="stats-title">Stat 1</span>
+											<span class="stats-complete">85%</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+													<span class="sr-only">85% Complete</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<span class="stats-title">Stat 2</span>
+											<span class="stats-complete">70%</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+													<span class="sr-only">70% Complete</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<span class="stats-title">Stat 3</span>
+											<span class="stats-complete">2%</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+													<span class="sr-only">2% Complete</span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+				
+				</aside>
+				<!-- end: menu -->
+				<!-- begin noi dung -->
+				<section role="main" class="content-body" ng-view>
+						
+						<!-- VIEW NOI DUNG	 -->			
+					
+				</section>
+				<!-- end: page -->	
+			</div>	
+		</section>
+
+
+		<!-- Vendor -->
+		<script src="octopus/assets/vendor/jquery/jquery.js"></script>
+		<script src="octopus/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="octopus/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="octopus/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="octopus/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="octopus/assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="octopus/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="octopus/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="octopus/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="octopus/assets/javascripts/theme.init.js"></script>
+		<!-- Examples -->
+<!-- 		<script src="octopus/assets/javascripts/dashboard/examples.dashboard.js"></script> -->
+		<script src="backend/vendor/metisMenu/metisMenu.min.js"></script>
+	    <script src="backend/dist/js/sb-admin-2.js"></script>
+	    
+	</body>
+</html>

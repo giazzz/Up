@@ -1,0 +1,50 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; !important
+}
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	line-height: 1.15;
+	color: #34404b;
+	background:#f4f6f8; 
+}
+/* Add a black background color to the top navigation bar */
+
+.topnav {
+  background-color: #34495e;
+  height: 40px;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav select {
+  float: left;
+  height: 100%;
+  font-size: 20px;
+  color: white;
+  background: green;
+  border:none;
+}
+
+.topnav input[type=text] {
+  border: none;
+  font-size: 17px;
+  height: 70%;
+  margin-top: 6px;
+  border-radius: 10px;
+
+}
+.topnav i{
+	color: white;
+	font-size: 20px;
+	margin-top: 10px;
+}
+.table_tbody{
+  background: #27293d; 
+}
+.type{
+    margin-bottom: 10px;
+}

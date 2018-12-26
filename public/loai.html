@@ -1,0 +1,117 @@
+<script type="text/javascript">
+                        function xoahaykhong(tinnhan){
+                            if(window.confirm(tinnhan) == true){
+                                return true;
+                            }
+                            return false
+                        }
+                    </script>
+<header class="page-header">
+    <h2>Categories</h2>
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Categories</span></li>
+        </ol>
+        <b class="sidebar-right-toggle" data-open=""><i class=""></i></b>
+    </div>
+</header>
+
+ <div class=" col-xs-12 type" >
+    <div class="col-xs-6 pull-left">
+            <button class="btn btn-primary pull-left addtype" style="height: 46px">
+                <a class="fas fa-plus" href="#!themloai" style="color: white;text-decoration: none;">&nbsp;Add new category</a>
+            </button>
+        </div>
+    <form action="" class=" search nav-form col-xs-6 pull-right">
+        <div class="">
+            <input type="text" class="form-control" name="q" id="q" placeholder="Search types..." ng-model = "tukhoa" style="height: 46px; border: 1px solid #34495e;">
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            
+            <!-- /.panel-heading -->
+            <div class="panel-body" style="background-color: #138496; color:white;">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-4">ID</th>
+                                <th class="col-xs-5 ">Category</th>
+                                <th class="text-center col-xs-3">Actions</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default" dir-paginate ="type in types | filter:tukhoa | itemsPerPage: pageSize" current-page="currentPage">
+            
+
+            <div class="panel-body thongtin_type" ng-show="!type.hienthi">
+                <div class="col-xs-4">{{type.id}}</div>
+                <div class="col-xs-5">{{type.name}}</div>
+                <div class="col-xs-3 text-center" style="margin-top: 0px;">
+                    <a class="btn " href="" ng-click="chuyen(type)"><i class="fas fa-pencil-alt">&nbsp;Edit</i></a>&nbsp;&nbsp;                  
+                    <a class="btn" onclick="return xoahaykhong('Are you sure?');" href="/xoaloai/{{type.id}}"><i class="fas fa-trash-alt">&nbsp;Delete</i></a>
+                    
+                </div>
+            </div>
+            <!-- KHOI SUA -->
+            <div class="panel-body thongtin_type" ng-show="type.hienthi"> 
+                <form class="" method="post" action="/update_types" enctype="multipart/form-data">
+                    <div class="form-group col-xs-4">
+                        <input type="tel" name="id" class="form-control " value="{{type.id}}" readonly/>
+                    </div>
+                    <div class="form-group col-xs-5">
+                        <input type="text" name="name" class="form-control" value="{{type.name}}"/>
+                    </div>
+                    <div class="form-group col-xs-3" style="margin-top: 10px;">
+                        <button class="btn btn-danger text-center" type="submit" ng-click="chuyen(type)"><i class="fas fa-check"></i>&nbsp;Save</button>
+                    </div>
+                </form>
+            </div>
+
+        </div> 
+    </div>
+</div>
+
+<div class="row text-center">
+    
+    <dir-pagination-controls></dir-pagination-controls>
+</div>
+
+
+
+
+
+ <script>
+    function xoahaykhong̣(tinnhan){
+  if(window.confirm(tinnhan)==true){
+    return true;
+  }
+    return false;
+}
+</script>
+<style>
+.thongtin_type{
+    /*color: black;*/
+    height: 70px;
+    background-color: white;
+}
+.thongtin_type div{
+    margin-top: 10px;
+}
+
+</style>

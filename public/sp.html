@@ -1,0 +1,156 @@
+<header class="page-header">
+    <h2>Products</h2>
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Products</span></li>
+        </ol>
+        <b class="sidebar-right-toggle" data-open=""><i class=""></i></b>
+    </div>
+</header>
+
+ <div class=" col-xs-12 type" style="margin-bottom: 10px;">
+    <div class="col-xs-4 pull-left">
+            <button class="btn btn-primary pull-left addtype" style="height: 46px;">
+                <a class="fas fa-plus" href="#!themsp" style="color: white;text-decoration: none; ">&nbsp;Add new product</a>
+            </button>
+    </div>
+    <select class="col-xs-2" ng-model="typeFilter" ng-options="type.name for type in types" style="border: 1px solid #34495e;">
+        <option value="" onclick="reload()">All products</option>
+    </select>
+    <form action="" class=" search nav-form col-xs-6 pull-right" >
+        <div class="" >
+            <input type="text" class="form-control" name="q" id="q" placeholder="Search products..." ng-model = "key" style="height: 46px; border: 1px solid #34495e;">
+            <!-- <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+            </span> -->
+        </div>
+    </form>
+</div>
+
+
+<div class="row">
+	<div class="col-xs-12">
+        <div class="panel panel-default">
+            <!-- /.panel-heading -->
+            <div class="panel-body" style="background-color: #138496; color:white;">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            	<div class="row">
+                                    <th class="col-xs-1 text-center">ID</th>
+                                    <th class="col-xs-2 text-center">Image</th>
+                                    <th class="col-xs-1 text-center">Name</th>
+                                    <th class="col-xs-1 text-center">Price</th>
+                                    <th class="col-xs-1 text-center">Type</th>
+                                    <th class="col-xs-2 text-center">Desc</th>
+                                    <th class="col-xs-2 text-center">Comment</th>
+                                    <th class="col-xs-1 text-center">Rating</th>
+                                    <th class="text-center col-xs-1">Actions</th>
+								</div>
+                            </tr>
+                        </thead>        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default" dir-paginate="product in products | filter : {type: typeFilter.name}: true | filter: key | itemsPerPage: pageSize" current-page="currentPage">
+            
+            <div class="panel-body thongtin_sp" ng-show="!product.hienthi">
+                <div class="col-xs-1 text-center">{{product.id}}</div>
+                <div class="col-xs-2 text-center"><img src="{{product.image_link}}" style="width: 218px; height: 200px;"></div>
+                <div class="col-xs-1 text-center">{{product.name}}</div>
+                <div class="col-xs-1 text-center">{{product.price}}</div>
+                <div class="col-xs-1 text-center">{{product.type}}</div>
+                <div class="col-xs-2 text-center">{{product.desc}}</div>
+                <div class="col-xs-2 text-center">{{product.comment}}</div>
+                <div class="col-xs-1 text-center">{{product.rating}}</div>
+                <div class="text-center col-xs-1">
+                    <a class="btn " href="" ng-click="chuyen(product)"><i class="fas fa-pencil-alt">&nbsp;Edit</i></a>&nbsp;&nbsp;                  
+                    <a class="btn" href="/xoasp/{{product.id}}"><i class="fas fa-trash-alt">&nbsp;Delete</i></a>
+                </div>
+            </div>
+            
+            <!-- KHOI SUA -->
+            <div class="panel-body thongtin_sp" ng-show="product.hienthi">
+                <form class="" method="post" action="/update-products" enctype="multipart/form-data" name="foo">
+                    <div class="form-group col-xs-1 ">
+                        <input type="tel" name="id" class="form-control" value="{{product.id}}" readonly>
+                    </div>
+                    <div class="form-group col-xs-2 ">
+                        <img id="picture" src="{{product.image_link}}" alt="your image" style="width: 150px;height: 200px;" />
+                        <input type='file' onchange="readURL(this);" value="{{product.image_link}}" name="image" />
+                    </div>
+                    <div class="form-group col-xs-1 ">
+                        <textarea type="text" name="name" class="form-control" value="" rows="4">{{product.name}}</textarea>
+                    </div>
+                    <div class="form-group col-xs-1 ">
+                        <textarea type="text" name="price" class="form-control" value="" rows="4">{{product.price}}</textarea>
+                    </div>
+                    <div class="form-group col-xs-1 ">
+                        <textarea type="text" name="type" class="form-control" value="" rows="4">{{product.type}}</textarea>
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <textarea type="text" name="desc" class="form-control" value="" rows="4">{{product.desc}}</textarea>
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <textarea type="text" name="comment" class="form-control" value="" rows="4">{{product.comment}}</textarea>
+                    </div>
+                    <div class="form-group col-xs-1">
+                        <textarea type="tel" name="rating" class="form-control" value="" rows="4">{{product.rating}}</textarea>
+                    </div>
+                    <div class="form-group col-xs-1">
+                        <button class="btn btn-danger text-center" type="submit" ng-click="chuyen(product)"><i class="fas fa-check"></i>&nbsp;Save</button>
+                    </div>
+                </form>
+            </div>
+
+        </div> 
+    </div>
+</div>
+<div class="row text-center">
+    <dir-pagination-controls></dir-pagination-controls>
+</div>
+
+
+<script>
+    function reload() {
+      location.reload();
+    }
+
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#picture')
+                    .attr('src', e.target.result)
+                    // .width(150)
+                    // .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
+
+<style> 
+.thongtin_sp{
+    /*color: white;*/
+    height: 260px;
+    background-color: #EEEEEE;
+}
+
+</style>

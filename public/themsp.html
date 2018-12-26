@@ -1,0 +1,67 @@
+<header class="page-header">
+	<h2>New product</h2>
+	<div class="right-wrapper pull-right">
+		<ol class="breadcrumbs">
+			<li>
+				<a href="index.html">
+					<i class="fa fa-home"></i>
+				</a>
+			</li>
+			<li><span>Add new product</span></li>
+		</ol>
+		<b class="sidebar-right-toggle" data-open=""><i class=""></i></b>
+	</div>
+</header>
+	<div class="container">
+		<div class="row col-xs-8 col-xs-push-2">
+			<form class="form_add" method="post" action="/save-products" enctype="multipart/form-data">
+			<h1 class="text-center">Add new product</h1>
+			<div class="form-group">
+				<label>ID</label>
+				<input type="tel" name="id" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" name="name" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Rating</label>
+				<input type="text" name="rating" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Description</label>
+				<input type="text" name="desc" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Type</label>
+				<input type="text" name="type" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Price</label>
+				<input type="tel" name="price" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Comment</label>
+				<textarea type="text" name="comment" class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12" style="padding-left: 0px">Picture</label>
+				<img id="image" style="width: 160px; height: 200px;" />
+				<input type="file" id="files" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-danger text-center col-xs-1" type="submit"><i class="fas fa-check"></i>&nbsp;</i>Save</button>
+			</div>
+		</form>
+		</div>
+	</div>
+
+<script>
+	document.getElementById("files").onchange = function () {
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        document.getElementById("image").src = e.target.result;
+	    };
+	    reader.readAsDataURL(this.files[0]);
+	};
+</script>
