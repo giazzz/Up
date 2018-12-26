@@ -60,7 +60,7 @@ var mongodb = require('mongodb');
 
 var MongoClient = mongodb.MongoClient;
 
-var url = 'mongodb://root:root123@ds024748.mlab.com:24748/eproject';
+var url = 'link API';
 
 // Use connect method to connect to the Server
 MongoClient.connect(url, function (err, db) {
